@@ -1,0 +1,23 @@
+{
+  "name": "cc-cms",
+  "version": "1.0.0",
+  "description": "Cloud Computing SIMPRE - 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guritaalexandru/cc-cms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guritaalexandru/cc-cms/issues"
+  },
+  "homepage": "https://github.com/guritaalexandru/cc-cms#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
