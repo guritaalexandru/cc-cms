@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/guritaalexandru/cc-cms#readme",
   "dependencies": {
+    "@google-cloud/translate": "^6.3.1",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

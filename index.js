@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 const multer = require('multer');
 const upload = multer();
 
+const {detectLanguage, translateText} = require("./utils/translateFunctions.js");
+const {LANGUAGE_ISO_CODE} = require("./utils/dictionaries.js");
+
 const app = express();
 // for parsing application/json
 app.use(bodyParser.json()); 
@@ -55,3 +58,12 @@ app.post("/messages", (req, res) => {
 });
 
 // TODO: Add rest of routes
+
+const processLanguage = async (text) => {
+  const languageDetection = await detectLanguage(text);
+  const translatedText = await translateText(text, LANGUAGE_ISO_CODE.ROMANIAN);
+  console.log(languageDetection);
+  console.log(translatedText);
+}
+
+//processLanguage("Hello world! This is my first time using Google Translate API!");
