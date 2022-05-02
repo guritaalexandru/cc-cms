@@ -20,14 +20,17 @@ router.get("/", (req, res) => {
         }
 
         return res.json({
-            data: results,
+            messages: results,
         });
     });
 });
 
 router.post("/", (req, res) => {
     const { senderName, senderMail, receiverMail, messageContent } = req.body;
-
+    if (!senderName || !senderMail || !receiverMail || !messageContent || !language) {
+        // send bad request error
+        return res.status(400).send("Bad request. Missing parametres.");
+    }
     const queryString = buildInsertQueryString(senderName, senderMail, receiverMail, messageContent);
 
     connection.query(queryString, (err, results) => {
@@ -46,8 +49,11 @@ router.post("/", (req, res) => {
 // ...
 
 router.post("/foreign", async (req, res) => {
-    const { senderName, senderMail, receiverMail, messageContent, language } =
-        req.body;
+    const { senderName, senderMail, receiverMail, messageContent, language } = req.body;
+    if (!senderName || !senderMail || !receiverMail || !messageContent || !language) {
+        // send bad request error
+        return res.status(400).send("Bad request. Missing parametres.");
+    }
     let translationData = {};
 
     const queryString = buildInsertQueryString(senderName, senderMail, receiverMail, messageContent);
@@ -101,7 +107,6 @@ router.post("/foreign", async (req, res) => {
             }
 
             return res.json({
-                data: results,
                 translationData,
             });
         });
