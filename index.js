@@ -3,8 +3,11 @@ const messagesRouter = require("./routers/messagesRouter");
 const bodyParser = require("body-parser");
 const multer = require('multer');
 const upload = multer();
+const cors = require('cors');
 
 const app = express();
+app.use(cors())
+
 // for parsing application/json
 app.use(bodyParser.json()); 
 
