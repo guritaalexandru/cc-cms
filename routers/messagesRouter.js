@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
     const { senderName, senderMail, receiverMail, messageContent } = req.body;
-    if (!senderName || !senderMail || !receiverMail || !messageContent || !language) {
+    if (!senderName || !senderMail || !receiverMail || !messageContent) {
         // send bad request error
         return res.status(400).send("Bad request. Missing parametres.");
     }
