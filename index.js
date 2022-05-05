@@ -1,8 +1,6 @@
 const express = require("express");
 const messagesRouter = require("./routers/messagesRouter");
 const bodyParser = require("body-parser");
-const multer = require('multer');
-const upload = multer();
 const cors = require('cors');
 
 const app = express();
@@ -13,10 +11,6 @@ app.use(bodyParser.json());
 
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// for parsing multipart/form-data
-app.use(upload.array()); 
-app.use(express.static('public'));
 
 app.use('/messages', messagesRouter);
 

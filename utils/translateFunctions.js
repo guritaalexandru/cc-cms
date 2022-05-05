@@ -11,6 +11,8 @@ async function translateText(inputText, targetLanguage) {
     return outputText;
 }
 
+//test here
+
 module.exports = {
     detectLanguage,
     translateText

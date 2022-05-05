@@ -167,7 +167,7 @@ router.post("/foreign", async (req, res) => {
         }
 
         //Send the message through the mail service
-        const sendMailResponse = await sendMail(
+        sendMail(
             receiverMail,
             senderMail,
             senderName + "" + " sent you a message",
