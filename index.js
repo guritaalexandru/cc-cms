@@ -1,5 +1,6 @@
 const express = require("express");
 const messagesRouter = require("./routers/messagesRouter");
+const utilsRouter = require("./routers/utilsRouter");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/messages', messagesRouter);
+app.use('/utils', utilsRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
